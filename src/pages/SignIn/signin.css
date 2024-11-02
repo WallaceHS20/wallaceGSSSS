@@ -1,0 +1,102 @@
+:root {
+    --color-error: #dd5b59;
+    --color-titlebold: #0A0453;
+    --color-primary: #0C4EC9;
+    --color-lightText: #ffffff;
+}
+
+.signUp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUp-logo-img{
+    width: 230px;
+    height: 100px;
+    position: fixed;
+    z-index: 22;
+    margin: 10px;
+    top: 0;
+    left: 0;
+}
+
+.signUp-login-painel{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.signUp-login-painel-img{
+    width: 220px;
+}
+
+.signUp-login-painel-box{
+    width: 100%;
+    max-width: 700px;
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FBFBFB;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+}
+
+.signUp-login-painel h1{
+    font-size: 2.3rem;
+    font-weight: 800;
+    margin-top: 15px;
+    color: var(--color-titlebold);
+}
+
+.signUp-login-painel h5{
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 15px;
+    color: var(--color-titlebold);
+}
+
+.signUp-login-painel-form{
+    padding: 8px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.icon-textfield{
+    width: 24px;
+    margin: 90px 0px;
+}
+
+.signUp-login-painel-form-send{
+    background-color: var(--color-primary);
+    color: var(--color-lightText);
+    padding: 15px 5px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: solid 1px #FFF;
+    transition: all ease-in 0.3s;
+}
+
+.signUp-login-painel-form-send:hover{
+    background-color: #FFF;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.perfil-sign{
+    padding: 10px;
+}
+
+.perfil-sign h2{
+    font-size: 1.2em;
+    margin: 15px 0;
+}

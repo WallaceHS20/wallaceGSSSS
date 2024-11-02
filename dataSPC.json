@@ -1,0 +1,139 @@
+{
+    "kinds_counts": {
+        "Agosto": 154355,
+        "Maio": 7806,
+        "Junho": 5274,
+        "Julho": 3144,
+        "Abril": 3047,
+        "Setembro": 1883,
+        "Janeiro": 1379,
+        "Fevereiro": 1327,
+        "Marco": 1238,
+        "Outubro": 1117,
+        "Novembro": 417,
+        "Dezembro": 252
+    },
+    "service_counts": {
+        "Agosto": 237,
+        "Outubro": 112,
+        "Setembro": 72,
+        "Julho": 70,
+        "Dezembro": 62,
+        "Marco": 62,
+        "Junho": 55,
+        "Abril": 54,
+        "Maio": 54,
+        "Novembro": 48,
+        "Fevereiro": 33,
+        "Janeiro": 22
+    },
+    "goods_counts": {
+        "Agosto": 154118,
+        "Maio": 7752,
+        "Junho": 5219,
+        "Julho": 3074,
+        "Abril": 2993,
+        "Setembro": 1811,
+        "Janeiro": 1357,
+        "Fevereiro": 1294,
+        "Marco": 1176,
+        "Outubro": 1005,
+        "Novembro": 369,
+        "Dezembro": 190
+    },
+    "cancelados_counts": {
+        "Agosto": 42627,
+        "Setembro": 278,
+        "Outubro": 138,
+        "Marco": 117,
+        "Julho": 89,
+        "Novembro": 63,
+        "Abril": 42,
+        "Fevereiro": 41,
+        "Maio": 30,
+        "Dezembro": 27,
+        "Junho": 20,
+        "Janeiro": 16
+    },
+    "active_counts": {
+        "Agosto": 111705,
+        "Maio": 7671,
+        "Junho": 5213,
+        "Julho": 3027,
+        "Abril": 2797,
+        "Setembro": 1595,
+        "Janeiro": 1351,
+        "Fevereiro": 1277,
+        "Marco": 1104,
+        "Outubro": 971,
+        "Novembro": 350,
+        "Dezembro": 220
+    },
+    "finished_counts": {
+        "Abril": 208,
+        "Maio": 105,
+        "Junho": 41,
+        "Julho": 28,
+        "Agosto": 23,
+        "Marco": 17,
+        "Janeiro": 12,
+        "Setembro": 10,
+        "Fevereiro": 9,
+        "Outubro": 8,
+        "Dezembro": 5,
+        "Novembro": 4
+    },
+    "qtd_estado_goods": {
+        "SP": 157111,
+        "CE": 5602,
+        "MG": 4000,
+        "NA": 3881,
+        "PE": 2817
+    },
+    "qtd_estados_canceled_goods": {
+        "SP": 42571,
+        "NA": 662,
+        "BA": 101,
+        "SC": 14,
+        "PA": 5
+    },
+    "qtd_estados_finished_goods": {
+        "SP": 230,
+        "MG": 59,
+        "RS": 57,
+        "SC": 26,
+        "RJ": 16
+    },
+    "qtd_estados_active_goods": {
+        "SP": 230,
+        "MG": 59,
+        "RS": 57,
+        "SC": 26,
+        "RJ": 16
+    },
+    "qtd_estado_services": {
+        "SP": 510,
+        "NA": 233,
+        "RJ": 84,
+        "PA": 20,
+        "SC": 16
+    },
+    "qtd_estados_cancelados_services": {
+        "NA": 111,
+        "SP": 17
+    },
+    "qtd_estados_finished_services": {
+        "SP": 16,
+        "SC": 15,
+        "NA": 8,
+        "RJ": 2,
+        "MG": 1
+    },
+    "qtd_estados_active_services": {
+        "SP": 16,
+        "SC": 15,
+        "NA": 8,
+        "RJ": 2,
+        "MG": 1
+    }
+}

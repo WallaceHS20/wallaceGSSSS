@@ -1,0 +1,6 @@
+.modalDelete-actions{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}

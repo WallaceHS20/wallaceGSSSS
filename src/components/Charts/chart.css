@@ -1,0 +1,41 @@
+.container-chart{
+    width: 100%;
+    min-height: 300px;
+    max-height: 320px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.TitleChartSection {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Roboto", sans-serif; 
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.TitleChartSection h3{
+    font-size: 1.5rem;
+}
+
+/* Estilos responsivos para mobile */
+@media (max-width: 768px) {
+    .container-chart {
+        min-height: 250px; /* Reduz a altura mínima para telas menores */
+        max-height: auto; /* Permite altura flexível no mobile */
+        padding: 0px; /* Reduz o padding para telas menores */
+    }
+
+    .TitleChartSection h3 {
+        font-size: 1.2rem; /* Reduz o tamanho da fonte no mobile para melhorar a leitura */
+    }
+}
