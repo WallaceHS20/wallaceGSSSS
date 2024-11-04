@@ -1,0 +1,96 @@
+.container-main{
+    display: flex;
+}
+
+.content{
+    margin-left: 80px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    background-color: rgb(7, 61, 163);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+}
+
+.menu img {
+    width: 35px;
+}
+
+.menuOpen {
+    width: 300px; /* Largura expandida ao abrir o menu */
+}
+
+.iconGrid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    padding: 5px;
+    gap: 0 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, padding 0.3s ease; 
+    border-radius: 8px;
+}
+
+.iconGrid:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.iconGrid img,
+.iconGrid .MuiAvatar-root {
+    transition: transform 0.3s ease-in-out; /* Animação para ícones e avatar */
+}
+
+.iconGrid:hover img,
+.iconGrid:hover .MuiAvatar-root {
+    transform: scale(1.1); /* Aumenta o tamanho dos ícones ao passar o mouse */
+}
+
+.iconGrid h3 {
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    margin-left: 10px;
+    transition: opacity 0.3s ease-in-out; /* Animação de fade para o texto */
+    opacity: 0; /* O texto começa invisível */
+}
+
+.menuOpen .iconGrid h3 {
+    opacity: 1; /* O texto aparece quando o menu é expandido */
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .menu {
+        width: 60px; /* Reduz a largura para dispositivos móveis */
+    }
+    .content{
+        margin-left: 59px;
+    }
+
+    .menuOpen {
+        width: 200px; /* Largura menor ao abrir em dispositivos móveis */
+    }
+
+    .iconGrid {
+        padding: 5px 10px; /* Ajusta o padding para telas menores */
+        gap: 0 10px; /* Reduz o espaçamento entre ícone e texto */
+    }
+
+    .iconGrid img {
+        width: 30px; /* Reduz o tamanho dos ícones no mobile */
+    }
+
+    .iconGrid h3 {
+        font-size: 0.9rem; /* Reduz o tamanho do texto no mobile */
+    }
+}

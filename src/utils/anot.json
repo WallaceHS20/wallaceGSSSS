@@ -1,0 +1,144 @@
+/*CADASTRO DE USUARIOS*/
+
+//USUARIOS CESSIONARIAS
+
+{"nome": "Carlos Eduardo Silva", "empresa": "Transporte Silva Ltda", "email": "carlos.silva@transporte.com", "senha": "senha_segura123", "perfil": "Cessionaria", "cpf_cnpj": "12345678901", "telefone": "1134556789", "celular": "11987654321", "cep": 12345678, "endereco": "Rua dos Transportes, 100", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": false}]}, "termo_log": []}
+{"nome": "Fernanda Oliveira Souza", "empresa": "Logística Oliveira", "email": "fernanda.oliveira@logistica.com", "senha": "senha_log123", "perfil": "Cessionaria", "cpf_cnpj": "98765432109", "telefone": "1123456789", "celular": "11912345678", "cep": 87654321, "endereco": "Avenida das Nações, 200", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": false}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": true}]}, "termo_log": []}
+{"nome": "Ricardo Mendes Costa", "empresa": "Mendes Transporte", "email": "ricardo.costa@transportemendes.com", "senha": "senha_ricardo321", "perfil": "Cessionaria", "cpf_cnpj": "45678912345", "telefone": "1145671234", "celular": "11987654322", "cep": 34567890, "endereco": "Rua Mendes, 300", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": false}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": true}]}, "termo_log": []}
+{"nome": "EletroMax", "empresa": "EletroMax Comércio de Eletrodomésticos", "email": "contato@eletromax.com", "senha": "senha_eletromax123", "perfil": "Cessionaria", "cpf_cnpj": "10101010100", "telefone": "1144556677", "celular": "11987654311", "cep": 12345000, "endereco": "Rua das Lojas, 100", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": false}]}, "termo_log": []}
+{"nome": "Casa & Conforto", "empresa": "Casa & Conforto Móveis e Decorações", "email": "vendas@casaeconforto.com", "senha": "senha_casa456", "perfil": "Cessionaria", "cpf_cnpj": "20202020200", "telefone": "1122334455", "celular": "11999887766", "cep": 22334455, "endereco": "Avenida Central, 200", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": false}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": true}]}, "termo_log": []}
+{"nome": "Mundo Eletro", "empresa": "Mundo Eletro Eletrodomésticos", "email": "suporte@mundoeletro.com", "senha": "senha_mundo789", "perfil": "Cessionaria", "cpf_cnpj": "30303030300", "telefone": "1133445566", "celular": "11966554433", "cep": 33445566, "endereco": "Rua das Indústrias, 150", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": false}]}, "termo_log": []}
+{"nome": "Mega Eletro", "empresa": "Mega Eletro Comércio", "email": "contato@megaeletro.com", "senha": "senha_mega123", "perfil": "Cessionaria", "cpf_cnpj": "40404040400", "telefone": "1144667788", "celular": "11977443322", "cep": 44556677, "endereco": "Avenida das Nações, 300", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": false}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": true}]}, "termo_log": []}
+{"nome": "EletroTop", "empresa": "EletroTop Varejo", "email": "vendas@eletrotop.com", "senha": "senha_top456", "perfil": "Cessionaria", "cpf_cnpj": "50505050500", "telefone": "1155778899", "celular": "11988223344", "cep": 55667788, "endereco": "Rua Principal, 500", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": false}, {"termo_item_nome": "frequencia", "termo_item_aceite": true}]}, "termo_log": []}
+{"nome": "Loja do Lar", "empresa": "Loja do Lar Eletrodomésticos", "email": "atendimento@lojadelar.com", "senha": "senha_lar789", "perfil": "Cessionaria", "cpf_cnpj": "60606060600", "telefone": "1166889977", "celular": "11999334455", "cep": 66778899, "endereco": "Rua do Comércio, 600", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": false}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": false}]}, "termo_log": []}
+{"nome": "Decora Mais", "empresa": "Decora Mais Móveis", "email": "suporte@decoramais.com", "senha": "senha_decora123", "perfil": "Cessionaria", "cpf_cnpj": "70707070700", "telefone": "1177990011", "celular": "11911445522", "cep": 77889900, "endereco": "Rua das Decorações, 700", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": false}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": true}]}, "termo_log": []}
+{"nome": "Eletro Fácil", "empresa": "Eletro Fácil Eletrodomésticos", "email": "contato@eletrofacil.com", "senha": "senha_facil456", "perfil": "Cessionaria", "cpf_cnpj": "80808080800", "telefone": "1188001122", "celular": "11922556633", "cep": 88990011, "endereco": "Avenida das Facilidades, 800", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": false}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": false}]}, "termo_log": []}
+
+//USUARIOS OPERADORES
+
+{"nome": "Patrícia Lima Ferreira", "empresa": "Ferreira Serviços", "email": "patricia.ferreira@servicos.com", "senha": "senha_patricia456", "perfil": "Operador", "cpf_cnpj": "78912345678", "telefone": "1156789123", "celular": "11965478901", "cep": 67890123, "endereco": "Avenida Central, 400", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": false}, {"termo_item_nome": "conteudo", "termo_item_aceite": true}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": true}]}, "termo_log": []}
+{"nome": "João Pedro Albuquerque", "empresa": "Operadora João", "email": "joao.albuquerque@operadora.com", "senha": "senha_joao789", "perfil": "Operador", "cpf_cnpj": "32165498712", "telefone": "11987651234", "celular": "11978945612", "cep": 11223344, "endereco": "Rua Nova, 500", "termo_atual": {"termo_nome": "termo de uso", "termo_aceite": true, "termo_versao": 1.0, "termo_item": [{"termo_item_nome": "recebimento de email", "termo_item_aceite": true}, {"termo_item_nome": "conteudo", "termo_item_aceite": false}, {"termo_item_nome": "protecao de dados", "termo_item_aceite": true}, {"termo_item_nome": "frequencia", "termo_item_aceite": false}]}, "termo_log": []}
+
+
+---------------------------------------------------------------------
+
+
+//CADASTRO DE CESSIONARIAS  
+
+{"cessionaria_nome": "Transporte Silva Ltda", "cessionaria_cnpj": "12345678901", "cessionaria_score": 85, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-001", "cessionaria_sacado_score": 90, "cessionaria_sacado_duplicadas_data_inicial": "2023-01-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "A Vencer", "cessionaria_sacado_nome": "João Marques", "cessionaria_sacado_empresa": "Marques Comércio Ltda", "cessionaria_sacado_contato": "João Marques", "cessionaria_sacado_email": "joao.marques@marquescomercio.com", "cessionaria_sacado_data_pagamento": "2023-12-01"}}
+{"cessionaria_nome": "Logística Oliveira", "cessionaria_cnpj": "98765432109", "cessionaria_score": 88, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-002", "cessionaria_sacado_score": 92, "cessionaria_sacado_duplicadas_data_inicial": "2023-02-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "Finalizado", "cessionaria_sacado_nome": "Maria Souza", "cessionaria_sacado_empresa": "Souza Distribuição", "cessionaria_sacado_contato": "Maria Souza", "cessionaria_sacado_email": "maria.souza@souzadistribuicao.com", "cessionaria_sacado_data_pagamento": "2023-11-15"}}
+{"cessionaria_nome": "Mendes Transporte", "cessionaria_cnpj": "45678912345", "cessionaria_score": 82, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-003", "cessionaria_sacado_score": 87, "cessionaria_sacado_duplicadas_data_inicial": "2023-03-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "Vencido", "cessionaria_sacado_nome": "Carlos Lima", "cessionaria_sacado_empresa": "Lima Serviços Ltda", "cessionaria_sacado_contato": "Carlos Lima", "cessionaria_sacado_email": "carlos.lima@limaservicos.com", "cessionaria_sacado_data_pagamento": "2023-10-10"}}
+{"cessionaria_nome": "EletroMax Comércio de Eletrodomésticos", "cessionaria_cnpj": "10101010100", "cessionaria_score": 85, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-101", "cessionaria_sacado_score": 90, "cessionaria_sacado_duplicadas_data_inicial": "2023-01-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "Finalizado", "cessionaria_sacado_nome": "Lucas Silva", "cessionaria_sacado_empresa": "Eletro Central Ltda", "cessionaria_sacado_contato": "Lucas Silva", "cessionaria_sacado_email": "lucas.silva@eletrocentral.com", "cessionaria_sacado_data_pagamento": "2023-12-01"}}
+{"cessionaria_nome": "Casa & Conforto Móveis e Decorações", "cessionaria_cnpj": "20202020200", "cessionaria_score": 88, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-102", "cessionaria_sacado_score": 92, "cessionaria_sacado_duplicadas_data_inicial": "2023-02-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "A Vencer", "cessionaria_sacado_nome": "Renata Alves", "cessionaria_sacado_empresa": "Decora Mais Móveis", "cessionaria_sacado_contato": "Renata Alves", "cessionaria_sacado_email": "renata.alves@decoramais.com", "cessionaria_sacado_data_pagamento": "2023-11-15"}}
+{"cessionaria_nome": "Mundo Eletro Eletrodomésticos", "cessionaria_cnpj": "30303030300", "cessionaria_score": 82, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-103", "cessionaria_sacado_score": 87, "cessionaria_sacado_duplicadas_data_inicial": "2023-03-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "Vencido", "cessionaria_sacado_nome": "Fernando Rocha", "cessionaria_sacado_empresa": "Rocha Comércio", "cessionaria_sacado_contato": "Fernando Rocha", "cessionaria_sacado_email": "fernando.rocha@rochacomercio.com", "cessionaria_sacado_data_pagamento": "2023-10-10"}}
+{"cessionaria_nome": "Mega Eletro Comércio", "cessionaria_cnpj": "40404040400", "cessionaria_score": 86, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-104", "cessionaria_sacado_score": 89, "cessionaria_sacado_duplicadas_data_inicial": "2023-04-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "Finalizado", "cessionaria_sacado_nome": "Ana Costa", "cessionaria_sacado_empresa": "Costa Comércio", "cessionaria_sacado_contato": "Ana Costa", "cessionaria_sacado_email": "ana.costa@costacomercio.com", "cessionaria_sacado_data_pagamento": "2023-12-15"}}
+{"cessionaria_nome": "EletroTop Varejo", "cessionaria_cnpj": "50505050500", "cessionaria_score": 83, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-105", "cessionaria_sacado_score": 91, "cessionaria_sacado_duplicadas_data_inicial": "2023-05-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "A Vencer", "cessionaria_sacado_nome": "Bruno Silva", "cessionaria_sacado_empresa": "Silva Distribuição", "cessionaria_sacado_contato": "Bruno Silva", "cessionaria_sacado_email": "bruno.silva@silvadistribuicao.com", "cessionaria_sacado_data_pagamento": "2023-11-20"}}
+{"cessionaria_nome": "Loja do Lar Eletrodomésticos", "cessionaria_cnpj": "60606060600", "cessionaria_score": 87, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-106", "cessionaria_sacado_score": 85, "cessionaria_sacado_duplicadas_data_inicial": "2023-06-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "Vencido", "cessionaria_sacado_nome": "Mariana Sousa", "cessionaria_sacado_empresa": "Sousa Comércio", "cessionaria_sacado_contato": "Mariana Sousa", "cessionaria_sacado_email": "mariana.sousa@sousacomercio.com", "cessionaria_sacado_data_pagamento": "2023-10-05"}}
+{"cessionaria_nome": "Decora Mais Móveis", "cessionaria_cnpj": "70707070700", "cessionaria_score": 90, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-107", "cessionaria_sacado_score": 88, "cessionaria_sacado_duplicadas_data_inicial": "2023-07-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "A Vencer", "cessionaria_sacado_nome": "Carlos Fernandes", "cessionaria_sacado_empresa": "Fernandes Decorações", "cessionaria_sacado_contato": "Carlos Fernandes", "cessionaria_sacado_email": "carlos.fernandes@fernandesdecor.com", "cessionaria_sacado_data_pagamento": "2023-12-10"}}
+{"cessionaria_nome": "Eletro Fácil Eletrodomésticos", "cessionaria_cnpj": "80808080800", "cessionaria_score": 84, "cessionaria_sacado": {"cessionaria_sacado_id": "sacado-id-108", "cessionaria_sacado_score": 86, "cessionaria_sacado_duplicadas_data_inicial": "2023-08-01", "cessionaria_sacado_duplicadas_data_final": "2023-12-31", "cessionaria_sacado_duplicata_status": "Finalizado", "cessionaria_sacado_nome": "Juliana Almeida", "cessionaria_sacado_empresa": "Almeida Distribuição", "cessionaria_sacado_contato": "Juliana Almeida", "cessionaria_sacado_email": "juliana.almeida@almeidadistribuicao.com", "cessionaria_sacado_data_pagamento": "2023-11-25"}}
+
+---------------------------------
+
+//INSERÇÃO DE SACADOS para Transporte Silva Ltda -  http://127.0.0.1:5000/assignee/12345678901/updateAssignee/
+
+{
+    "cessionaria_nome": "Transporte Silva Ltda",
+    "cessionaria_score": 85,
+    "cessionaria_sacado": {
+        "cessionaria_sacado_id": "sacado-id-001",
+        "cessionaria_sacado_score": 90,
+        "cessionaria_sacado_duplicatas_data_inicial": "2023-01-01",
+        "cessionaria_sacado_duplicatas_data_final": "2023-12-31",
+        "cessionaria_sacado_duplicata_status": "A Vencer",
+        "cessionaria_sacado_nome": "João Marques",
+        "cessionaria_sacado_empresa": "Marques Comércio Ltda",
+        "cessionaria_sacado_contato": "João Marques",
+        "cessionaria_sacado_email": "joao.marques@marquescomercio.com",
+        "cessionaria_sacado_data_pagamento": "2023-12-01"
+    }
+}
+
+{
+    "cessionaria_nome": "Transporte Silva Ltda",
+    "cessionaria_score": 85,
+    "cessionaria_sacado": {
+        "cessionaria_sacado_id": "sacado-id-002",
+        "cessionaria_sacado_score": 88,
+        "cessionaria_sacado_duplicatas_data_inicial": "2023-02-01",
+        "cessionaria_sacado_duplicatas_data_final": "2023-12-31",
+        "cessionaria_sacado_duplicata_status": "Finalizado",
+        "cessionaria_sacado_nome": "Maria Oliveira",
+        "cessionaria_sacado_empresa": "Oliveira Distribuidora",
+        "cessionaria_sacado_contato": "Maria Oliveira",
+        "cessionaria_sacado_email": "maria.oliveira@olivedist.com",
+        "cessionaria_sacado_data_pagamento": "2023-11-15"
+    }
+}
+
+{
+    "cessionaria_nome": "Transporte Silva Ltda",
+    "cessionaria_score": 85,
+    "cessionaria_sacado": {
+        "cessionaria_sacado_id": "sacado-id-003",
+        "cessionaria_sacado_score": 80,
+        "cessionaria_sacado_duplicatas_data_inicial": "2023-03-01",
+        "cessionaria_sacado_duplicatas_data_final": "2023-12-31",
+        "cessionaria_sacado_duplicata_status": "Vencido",
+        "cessionaria_sacado_nome": "Carlos Lima",
+        "cessionaria_sacado_empresa": "Lima Serviços Ltda",
+        "cessionaria_sacado_contato": "Carlos Lima",
+        "cessionaria_sacado_email": "carlos.lima@limaservicos.com",
+        "cessionaria_sacado_data_pagamento": "2023-10-05"
+    }
+}
+
+{
+    "cessionaria_nome": "Transporte Silva Ltda",
+    "cessionaria_score": 85,
+    "cessionaria_sacado": {
+        "cessionaria_sacado_id": "sacado-id-004",
+        "cessionaria_sacado_score": 92,
+        "cessionaria_sacado_duplicatas_data_inicial": "2023-04-01",
+        "cessionaria_sacado_duplicatas_data_final": "2023-12-31",
+        "cessionaria_sacado_duplicata_status": "A Vencer",
+        "cessionaria_sacado_nome": "Fernanda Souza",
+        "cessionaria_sacado_empresa": "Souza Comércio",
+        "cessionaria_sacado_contato": "Fernanda Souza",
+        "cessionaria_sacado_email": "fernanda.souza@souzacomercio.com",
+        "cessionaria_sacado_data_pagamento": "2023-12-10"
+    }
+}
+
+{
+    "cessionaria_nome": "Transporte Silva Ltda",
+    "cessionaria_score": 85,
+    "cessionaria_sacado": {
+        "cessionaria_sacado_id": "sacado-id-005",
+        "cessionaria_sacado_score": 85,
+        "cessionaria_sacado_duplicatas_data_inicial": "2023-05-01",
+        "cessionaria_sacado_duplicatas_data_final": "2023-12-31",
+        "cessionaria_sacado_duplicata_status": "Finalizado",
+        "cessionaria_sacado_nome": "Ricardo Mendes",
+        "cessionaria_sacado_empresa": "Mendes Comércio",
+        "cessionaria_sacado_contato": "Ricardo Mendes",
+        "cessionaria_sacado_email": "ricardo.mendes@comerciomendes.com",
+        "cessionaria_sacado_data_pagamento": "2023-11-20"
+    }
+}
+
+{
+    "cessionaria_nome": "Transporte Silva Ltda",
+    "cessionaria_score": 85,
+    "cessionaria_sacado": {
+        "cessionaria_sacado_id": "sacado-id-006",
+        "cessionaria_sacado_score": 89,
+        "cessionaria_sacado_duplicatas_data_inicial": "2023-06-01",
+        "cessionaria_sacado_duplicatas_data_final": "2023-12-31",
+        "cessionaria_sacado_duplicata_status": "A Vencer",
+        "cessionaria_sacado_nome": "Ana Costa",
+        "cessionaria_sacado_empresa": "Costa Eletros",
+        "cessionaria_sacado_contato": "Ana Costa",
+        "cessionaria_sacado_email": "ana.costa@costaeletros.com",
+        "cessionaria_sacado_data_pagamento": "2023-12-15"
+    }
+}

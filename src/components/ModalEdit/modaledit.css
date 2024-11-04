@@ -1,0 +1,90 @@
+.modalEdit {
+    width: 1900px;
+    max-width: 100%; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.modalEdit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+.modalEdit-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+}
+
+.modalEdit-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 90px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+
+.modalEdit-form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.modalEdit-form-group input.error {
+    border-color: red;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+
+.modalEdit-form-group .cancel-edit-button {
+    background-color: #D0D0D0;
+    color: rgb(0, 0, 0);
+    border: 1px solid #0e0d0d;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 300px;
+    max-width: 300px;
+}
+
+.modalEdit-form-group .cancel-edit-button:hover {
+    background-color: #aaaaaa;
+}
+
+.modalEdit-submit{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.modalEdit-form-group .send-edit-button {
+    background-color: #D0D0D0;
+    color: rgb(0, 0, 0);
+    border: 1px solid #0e0d0d;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 300px;
+    max-width: 300px;
+}
+.modalEdit-form-group .send-edit-button:hover {
+    background-color: #aaaaaa;
+}

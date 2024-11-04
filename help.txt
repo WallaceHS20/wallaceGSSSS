@@ -1,0 +1,18 @@
+Inicio da aplicação Local:
+
+-Baixar as dependencias
+    npm install
+
+-Executar aplicação
+    npm start
+
+
+
+
+Inicio da aplicação Docker:
+
+- Subir o container docker
+    docker-compose up --build
+    (App docker tem que estar rodando)
+
+- Rota: http://localhost:5173/ 

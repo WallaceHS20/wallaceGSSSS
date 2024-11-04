@@ -1,0 +1,15 @@
+.icon-button{
+    color: rgb(29, 150, 13);
+}
+
+.actionButton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

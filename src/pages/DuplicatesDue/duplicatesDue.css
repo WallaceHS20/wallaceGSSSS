@@ -1,0 +1,67 @@
+.title-due {
+    font-size: 2.8rem;
+    padding: 20px;
+}
+
+.description-due {
+    font-size: 1rem;
+    padding: 20px;
+    color: #19b919;
+    font-weight: 700;
+}
+
+.duplicatesDueHeader {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+    padding: 20px;
+}
+
+.tableDuplicateDue {
+    padding: 20px;
+}
+
+.duplicatePagination {
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.status {
+    padding: 7px;
+    border-radius: 4px;
+}
+
+.vencer {
+    background-color: #f2e33dd2;
+    color: #606003;
+    border: solid 1px #606003;
+}
+
+.vencido {
+    background-color: #FFC5C5;
+    color: #DF0404;
+    border: solid 1px #DF0404;
+}
+
+.finalizadas {
+    background-color: #C5FFD1;
+    color: #1B8506;
+    border: solid 1px #1B8506;
+}
+
+@media (max-width: 600px) {
+
+    .duplicatesDueHeader {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items:start
+    }
+
+    .duplicatePagination {
+        justify-content: center;
+    }
+
+}

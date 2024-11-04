@@ -1,0 +1,78 @@
+.signUp-profile-painel{
+    display: flex;
+    width: 100%;
+}
+
+.capa-profile{
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.capa-profile img{
+    width: 100%;
+    margin: auto;
+    object-fit: contain;
+}
+
+.signUp-profile-painel-box{
+    width: 60%;
+    padding: 40px 30px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.signUp-profile-painel h1{
+    font-size: 2.3rem;
+    font-weight: 800;
+    margin-top: 15px;
+    color: var(--color-titlebold);
+}
+
+.signUp-profile-painel h5{
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 15px;
+    color: var(--color-titlebold);
+}
+
+.signUp-profile-painel-form{
+    padding: 8px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.icon-textfield{
+    width: 24px;
+    margin: 90px 0px;
+}
+
+.signUp-profile-painel-form-send{
+    background-color: var(--color-primary);
+    color: var(--color-lightText);
+    padding: 15px 5px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: solid 1px #FFF;
+    transition: all ease-in 0.3s;
+}
+
+.signUp-profile-painel-form-send:hover{
+    background-color: #FFF;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.perfil-sign{
+    padding: 10px;
+}
+
+.perfil-sign h2{
+    font-size: 1.2em;
+    margin: 15px 0;
+}

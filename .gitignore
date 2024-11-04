@@ -1,0 +1,45 @@
+# Dependências do Node.js
+node_modules/
+package-lock.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretório de ambiente (caso use o PM2)
+.pids/
+
+# Arquivos de configuração sensíveis
+.env
+.env.local
+.env.*.local
+
+# Build e cache
+dist/
+build/
+.cache/
+.temp/
+
+# Configurações específicas do editor
+.vscode/
+.idea/
+*.swp
+
+# Diretórios de teste e cobertura de código
+coverage/
+*.lcov
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração de serviços
+.firebase/
+.expo/
+.cordova/
+
+# Relatórios de depuração
+stacktrace.log
