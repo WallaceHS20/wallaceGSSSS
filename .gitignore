@@ -12,6 +12,9 @@ yarn-error.log*
 # Diretório de ambiente (caso use o PM2)
 .pids/
 
+
+
+
 # Arquivos de configuração sensíveis
 .env
 .env.local
