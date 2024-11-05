@@ -3,20 +3,8 @@
     width: 100%;
 }
 
-.capa-profile{
-    width: 40%;
-    display: flex;
-    align-items: center;
-}
-
-.capa-profile img{
-    width: 100%;
-    margin: auto;
-    object-fit: contain;
-}
-
 .signUp-profile-painel-box{
-    width: 60%;
+    width: 100%;
     padding: 40px 30px;
     margin: auto;
     display: flex;
@@ -75,4 +63,8 @@
 .perfil-sign h2{
     font-size: 1.2em;
     margin: 15px 0;
+}
+
+.termos-opcionais{
+    margin: 20px 0;
 }

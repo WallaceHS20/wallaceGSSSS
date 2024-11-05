@@ -10,67 +10,94 @@ import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
 import InputAdornment from '@mui/material/InputAdornment';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 import './profile.css';
 import Menu from '../../components/SideBarMenu';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../../redux/user/userSlice';
 import { fetchLatestTerm } from '../../redux/termo/termoSlice';
+import { updateUser } from '../../redux/user/userSlice';
+import { toast } from 'react-toastify';
+
 
 export default function Profile() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
-    const [termsData, setTermsData] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     console.log('qqqqq');
     console.log(user.user);
-    
+
 
     const {
         register,
         handleSubmit,
-        setValue, // Função para definir valores dos campos
+        setValue,
+        control,
         formState: { errors },
     } = useForm();
 
     useEffect(() => {
         if (user.user) {
-            setValue('nome', user.nome);
-            setValue('empresa', user.perfil);
-            setValue('email', user.email);
-            setValue('senha', user.senha);
-            setValue('cpf_cnpj', user.cpf_cnpj);
-            setValue('telefone', user.telefone);
-            setValue('celular', user.celular);
-            setValue('cep', user.cep);
-            setValue('endereco', user.endereco);
-            setValue('perfil', user.perfil);
+            setValue('nome', user.user.nome);
+            setValue('empresa', user.user.perfil);
+            setValue('email', user.user.email);
+            setValue('cpf_cnpj', user.user.cpf_cnpj);
+            setValue('telefone', user.user.telefone);
+            setValue('celular', user.user.celular);
+            setValue('cep', user.user.cep);
+            setValue('endereco', user.user.endereco);
+            setValue('perfil', user.user.perfil);
         }
-    }, [user, setValue]);
+    }, [user.user, setValue]);
+
 
     const onSubmit = async (data) => {
+        setLoading(true);
         try {
-            const resultAction = await dispatch(createUser(data));
+            // Construir a estrutura de termos, que pode ser extraída do estado ou construída de acordo com a lógica de termos aceitos
+            const termoAtual = {
+                termo_item: user.user.termo_atual.termo_item.map(item => ({
+                    termo_item_nome: item.termo_item_nome,
+                    termo_item_aceite: item.termo_item_aceite 
+                })),
+            };
 
-            if (createUser.fulfilled.match(resultAction)) {
-                const termsAction = await dispatch(fetchLatestTerm());
+            const requestData = {
+                nome: data.nome,
+                empresa: data.empresa,
+                email: data.email,
+                senha: data.senha, 
+                perfil: data.perfil,
+                cpf_cnpj: data.cpf_cnpj,
+                telefone: data.telefone,
+                celular: data.celular,
+                cep: data.cep,
+                endereco: data.endereco,
+                termo_atual: termoAtual,
+                termo_log: [] 
+            };
 
-                if (fetchLatestTerm.fulfilled.match(termsAction)) {
-                    setTermsData(termsAction.payload);
-                    setModalOpen(true);
-                } else {
-                    console.error('Erro ao buscar termos:', termsAction.payload);
-                }
-            } else if (createUser.rejected.match(resultAction)) {
-                console.error('Erro ao criar usuário:', resultAction.payload);
+            const resultAction = await dispatch(updateUser(requestData));
+
+            if (updateUser.fulfilled.match(resultAction)) {
+                toast.success('Usuário atualizado com sucesso');
+                setLoading(false);
+
             }
-        } catch (error) {
-            console.error('Erro ao despachar a ação de cadastro:', error);
+
+            else if (updateUser.rejected.match(resultAction)) {
+                console.error('Erro ao atualizar usuário:', resultAction.payload);
+                setLoading(false);
+            }
+        }
+
+        catch (error) {
+            console.error('Erro ao despachar a ação de atualização:', error);
+            setLoading(false);
         }
     };
 
@@ -243,23 +270,31 @@ export default function Profile() {
                                     ),
                                 }}
                             />
-                            <div className='perfil-sign'>
-                                <h2>Perfil</h2>
-                                <RadioGroup {...register('perfil', { required: 'Perfil é obrigatório' })}>
-                                    <FormControlLabel value="Cessionaria" control={<Radio />} label="Cessionária" />
-                                    <FormControlLabel value="Sacado" control={<Radio />} label="Sacado" />
-                                    <FormControlLabel value="Operador" control={<Radio />} label="Operador" />
-                                </RadioGroup>
-                                {errors.perfil && <p style={{ color: 'var(--color-error)' }}>{errors.perfil.message}</p>}
+
+                            <div className="termos-opcionais">
+                                <h2>Termos Opcionais</h2>
+                                {user.user.termo_atual.termo_item.map((item, index) => (
+                                    <FormControlLabel
+                                        key={index}
+                                        control={
+                                            <Controller
+                                                name={`termo_item_${index}`}
+                                                control={control}
+                                                defaultValue={item.termo_item_aceite} // Defina o valor padrão com base nos dados do usuário
+                                                render={({ field }) => (
+                                                    <Checkbox {...field} checked={field.value} />
+                                                )}
+                                            />
+                                        }
+                                        label={item.termo_item_nome}
+                                    />
+                                ))}
                             </div>
                             <button className='signUp-profile-painel-form-send' type="submit">
-                                Cadastrar
+                                Atualizar
                             </button>
                         </form>
                     </main>
-                    <div className='capa-profile'>
-                        <img src='./userB1.jpg' alt="Capa do Perfil" />
-                    </div>
                 </section>
             </div>
         </>

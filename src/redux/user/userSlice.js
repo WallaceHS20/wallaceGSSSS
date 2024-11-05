@@ -24,7 +24,7 @@ export const loginUser = createAsyncThunk(
     }
 );
 
-// Ação assíncrona para login do usuário
+// Ação assíncrona para criar do usuário
 export const createUser = createAsyncThunk(
     'user/createUser',
     async (data, { rejectWithValue }) => {
@@ -38,6 +38,22 @@ export const createUser = createAsyncThunk(
     }
 );
 
+export const updateUser = createAsyncThunk(
+    'user/updateUser',
+    async (data, { rejectWithValue }) => {
+        try {            
+            const response = await api.put(`/users/${data.cpf_cnpj}/update`, data);
+            console.log(response.data);
+            return response.data;
+        } catch (error) {
+            const errorMessage = error.response?.data || error.message || 'Erro desconhecido';
+            toast.error(`Erro ao atualizar o usuário: ${errorMessage}`);
+            return rejectWithValue(errorMessage);
+        }
+    }
+);
+
+
 export const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -48,6 +64,8 @@ export const userSlice = createSlice({
             localStorage.removeItem('UserData');
         },
     },
+
+    
     extraReducers: (builder) => {
         builder
             .addCase(loginUser.pending, (state) => {
