@@ -15,7 +15,7 @@ export const loginUser = createAsyncThunk(
         try {
             const response = await api.post('/users/login', data);
             console.log(response.data);
-            
+
             return response.data;
         } catch (error) {
             toast.error('Erro ao fazer login.');
@@ -41,7 +41,7 @@ export const createUser = createAsyncThunk(
 export const updateUser = createAsyncThunk(
     'user/updateUser',
     async (data, { rejectWithValue }) => {
-        try {            
+        try {
             const response = await api.put(`/users/${data.cpf_cnpj}/update`, data);
             console.log(response.data);
             return response.data;
@@ -65,7 +65,7 @@ export const userSlice = createSlice({
         },
     },
 
-    
+
     extraReducers: (builder) => {
         builder
             .addCase(loginUser.pending, (state) => {
@@ -80,8 +80,33 @@ export const userSlice = createSlice({
             .addCase(loginUser.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload;
+            })
+            .addCase(updateUser.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+            
+                // Atualize o estado `user`, incluindo `termo_atual` explicitamente
+                const updatedUser = {
+                    ...state.user, // Dados existentes
+                    ...action.meta.arg, // Novos dados enviados na requisição
+                    termo_atual: action.meta.arg.termo_atual, // Inclua `termo_atual` explicitamente
+                };
+            
+                state.user = updatedUser;
+                localStorage.setItem('UserData', JSON.stringify(updatedUser));
+            
+                toast.success('Dados do usuário atualizados com sucesso!');
+            })
+
+            .addCase(updateUser.pending, (state) => {
+                state.status = 'loading';
+                state.error = null;
+            })
+            .addCase(updateUser.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload;
             });
-    },
+    }
+
 });
 
 export const { logoutUser } = userSlice.actions;

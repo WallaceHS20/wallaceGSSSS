@@ -26,9 +26,12 @@
 }
 
 .signUp-profile-painel-form{
-    padding: 8px;
-    width: 100%;
-    max-width: 700px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 10px;
+    justify-items: center;
+    align-items: center;
 }
 
 .icon-textfield{
@@ -37,10 +40,18 @@
 }
 
 .signUp-profile-painel-form-send{
+    grid-column: span 2;
+    margin: 15px 10px;
+    width: 100%;
+
+}
+
+.signUp-profile-painel-form-send button{
     background-color: var(--color-primary);
     color: var(--color-lightText);
     padding: 15px 5px;
-    width: 100%;
+    width: 400px;
+    float: right;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.1rem;
@@ -50,10 +61,11 @@
     transition: all ease-in 0.3s;
 }
 
-.signUp-profile-painel-form-send:hover{
+.signUp-profile-painel-form-send button:hover{
     background-color: #FFF;
     color: var(--color-primary);
     border-color: var(--color-primary);
+    
 }
 
 .perfil-sign{
@@ -67,4 +79,53 @@
 
 .termos-opcionais{
     margin: 20px 0;
+}
+
+.termos-opcionais{
+    padding: 8px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .signUp-profile-painel {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .signUp-profile-painel-box {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .signUp-profile-painel-form {
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+
+
+    .signUp-profile-painel-form-send {
+        grid-column: span 1;
+        margin: 0 auto; 
+        width: 100%; 
+        padding: 10px 0;
+    }
+
+    .signUp-profile-painel-form-send button {
+        width: 100%; 
+        padding: 15px;
+    }
+
+    .signUp-profile-painel h1 {
+        font-size: 1.8rem; 
+    }
+
+    .signUp-profile-painel h5 {
+        font-size: 1rem; 
+    }
+
+    .termos-opcionais {
+        padding: 8px;
+        width: 100%;
+        margin: 15px 0;
+    }
 }

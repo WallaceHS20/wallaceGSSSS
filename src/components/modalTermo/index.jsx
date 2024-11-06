@@ -5,8 +5,6 @@ import baseURL from "../../utils";
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
-
-// eslint-disable-next-line react/prop-types
 export default function ModalTermo({ open, onClose, dataForm }){
 
     const [dataTermo, setDataTermo] = useState([]);

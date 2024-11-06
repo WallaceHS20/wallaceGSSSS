@@ -12,13 +12,16 @@ import KeyIcon from '@mui/icons-material/Key';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+
 
 import './profile.css';
 import Menu from '../../components/SideBarMenu';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { createUser } from '../../redux/user/userSlice';
-import { fetchLatestTerm } from '../../redux/termo/termoSlice';
 import { updateUser } from '../../redux/user/userSlice';
 import { toast } from 'react-toastify';
 
@@ -27,19 +30,9 @@ export default function Profile() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
     const [loading, setLoading] = useState(false);
+    const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
 
-    console.log('qqqqq');
-    console.log(user.user);
-
-
-    const {
-        register,
-        handleSubmit,
-        setValue,
-        control,
-        formState: { errors },
-    } = useForm();
-
+    // SETANDO VALORES NOS CAMPOS AO CARREGAR
     useEffect(() => {
         if (user.user) {
             setValue('nome', user.user.nome);
@@ -52,57 +45,47 @@ export default function Profile() {
             setValue('endereco', user.user.endereco);
             setValue('perfil', user.user.perfil);
         }
+
     }, [user.user, setValue]);
 
+    console.log(user.user);
+    
 
     const onSubmit = async (data) => {
         setLoading(true);
         try {
-            // Construir a estrutura de termos, que pode ser extraída do estado ou construída de acordo com a lógica de termos aceitos
+            // Mapeie `termo_item` com os valores mais recentes dos checkboxes
             const termoAtual = {
-                termo_item: user.user.termo_atual.termo_item.map(item => ({
+                "termo_aceite": true,
+                termo_item: user.user.termo_atual.termo_item.map((item, index) => ({
                     termo_item_nome: item.termo_item_nome,
-                    termo_item_aceite: item.termo_item_aceite 
+                    termo_item_aceite: data.termo_item[index].termo_item_aceite, // Pega o valor atualizado do checkbox
                 })),
             };
-
+    
+            // CORPO REQUISIÇÃO
             const requestData = {
-                nome: data.nome,
-                empresa: data.empresa,
-                email: data.email,
-                senha: data.senha, 
-                perfil: data.perfil,
-                cpf_cnpj: data.cpf_cnpj,
-                telefone: data.telefone,
-                celular: data.celular,
-                cep: data.cep,
-                endereco: data.endereco,
+                ...data,
                 termo_atual: termoAtual,
-                termo_log: [] 
+                termo_log: []
             };
-
+    
             const resultAction = await dispatch(updateUser(requestData));
-
+    
             if (updateUser.fulfilled.match(resultAction)) {
-                toast.success('Usuário atualizado com sucesso');
                 setLoading(false);
-
-            }
-
+            } 
+            
             else if (updateUser.rejected.match(resultAction)) {
                 console.error('Erro ao atualizar usuário:', resultAction.payload);
                 setLoading(false);
             }
-        }
-
+        } 
+        
         catch (error) {
             console.error('Erro ao despachar a ação de atualização:', error);
             setLoading(false);
         }
-    };
-
-    const handleCloseModal = () => {
-        setModalOpen(false);
     };
 
     return (
@@ -129,6 +112,7 @@ export default function Profile() {
                                     ),
                                 }}
                             />
+
                             <TextField
                                 {...register('empresa', { required: 'Empresa é obrigatória' })}
                                 error={!!errors.empresa}
@@ -145,6 +129,7 @@ export default function Profile() {
                                     ),
                                 }}
                             />
+
                             <TextField
                                 {...register('email', {
                                     required: 'E-mail é obrigatório',
@@ -153,6 +138,7 @@ export default function Profile() {
                                         message: 'Formato de e-mail inválido',
                                     },
                                 })}
+                                disabled
                                 error={!!errors.email}
                                 helperText={errors.email ? errors.email.message : ''}
                                 label="E-mail"
@@ -169,7 +155,6 @@ export default function Profile() {
                             />
                             <TextField
                                 {...register('senha', {
-                                    required: 'Senha é obrigatória',
                                     minLength: {
                                         value: 6,
                                         message: 'A senha deve ter pelo menos 6 caracteres',
@@ -191,7 +176,7 @@ export default function Profile() {
                                 }}
                             />
                             <TextField
-                                {...register('cpf_cnpj', { required: 'CPF/CNPJ é obrigatório' })}
+                                {...register('cpf_cnpj', { required: 'CNPJ é obrigatório' })}
                                 error={!!errors.cpf_cnpj}
                                 helperText={errors.cpf_cnpj ? errors.cpf_cnpj.message : ''}
                                 label="CPF/CNPJ"
@@ -271,18 +256,44 @@ export default function Profile() {
                                 }}
                             />
 
+                            <FormControl fullWidth margin="normal" variant="standard">
+                                <InputLabel id="perfil-label">Perfil</InputLabel>
+                                <Controller
+                                    name="perfil"
+                                    disabled
+                                    control={control}
+                                    defaultValue={user.user?.perfil || ''} // Valor inicial do perfil do usuário
+                                    render={({ field }) => (
+                                        <Select
+                                            {...field}
+                                            labelId="perfil-label"
+                                            label="Perfil"
+                                            fullWidth
+                                        >
+                                            <MenuItem value="Cessionaria">Cessionária</MenuItem>
+                                            <MenuItem value="Operador">Cliente</MenuItem>
+                                        </Select>
+                                    )}
+                                />
+                            </FormControl>
+
+                            {/* TERMOS DE USO */}
                             <div className="termos-opcionais">
                                 <h2>Termos Opcionais</h2>
-                                {user.user.termo_atual.termo_item.map((item, index) => (
+                                {user.user?.termo_atual?.termo_item?.map((item, index) => (
                                     <FormControlLabel
                                         key={index}
                                         control={
                                             <Controller
-                                                name={`termo_item_${index}`}
+                                                name={`termo_item[${index}].termo_item_aceite`} // Nome ajustado para capturar corretamente no onSubmit
                                                 control={control}
-                                                defaultValue={item.termo_item_aceite} // Defina o valor padrão com base nos dados do usuário
+                                                defaultValue={item.termo_item_aceite}
                                                 render={({ field }) => (
-                                                    <Checkbox {...field} checked={field.value} />
+                                                    <Checkbox
+                                                        {...field}
+                                                        checked={field.value}
+                                                        onChange={(e) => field.onChange(e.target.checked)} // Atualiza o valor quando o usuário marca/desmarca
+                                                    />
                                                 )}
                                             />
                                         }
@@ -290,9 +301,13 @@ export default function Profile() {
                                     />
                                 ))}
                             </div>
-                            <button className='signUp-profile-painel-form-send' type="submit">
-                                Atualizar
-                            </button>
+
+                            <div className="signUp-profile-painel-form-send">
+                                <button type="submit">
+                                    Atualizar
+                                </button>
+                            </div>
+
                         </form>
                     </main>
                 </section>
