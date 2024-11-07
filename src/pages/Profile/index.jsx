@@ -23,7 +23,6 @@ import Menu from '../../components/SideBarMenu';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../redux/user/userSlice';
-import { toast } from 'react-toastify';
 
 
 export default function Profile() {
