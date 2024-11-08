@@ -9,6 +9,7 @@ import DuplicatesCompleted from '../pages/DuplicatesCompleted'
 import Sacados from '../pages/Sacados'
 import Users from '../pages/Users'
 import Profile from '../pages/Profile'
+import ShowTermo from '../pages/ShowModal'
 
 function RoutesApp(){
     return(
@@ -18,6 +19,7 @@ function RoutesApp(){
             <Route path='/login' element={<SignIn/>}/>
             <Route path='/signUp' element={<SignUp/>}/>
             <Route path='/profile' element={<Profile/>}/>
+            <Route path='/termo' element={<ShowTermo/>}/>
             <Route path='/duplicatas/duplicatesDue' element={<DuplicatesDue/>}/>
             <Route path='/duplicatas/expiredDue' element={<DuplicatesExpired/>}/>
             <Route path='/duplicatas/completedDue' element={<DuplicatesCompleted/>}/>

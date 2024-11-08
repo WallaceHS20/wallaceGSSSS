@@ -10,13 +10,13 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import './termos.css'
 
 const TermsModal = ({ open, handleClose, termsData, userData, cnpj }) => {
     const [acceptedTerms, setAcceptedTerms] = useState({});
     const navigate = useNavigate();
 
     const handleAccept = async () => {
-
         const termsToUpdate = termsData.termo_item.map((item) => ({
             termo_item_nome: item.termo_item_nome,
             termo_item_aceite: acceptedTerms[item.termo_item_nome] || false,
@@ -33,20 +33,18 @@ const TermsModal = ({ open, handleClose, termsData, userData, cnpj }) => {
         };
 
         try {
-            console.log(updatedUserData)
+            console.log(updatedUserData);
             const response = await axios.put(`http://localhost:5000/users/${cnpj}/update`, updatedUserData);
 
             if (response.status === 200) {
                 toast.success('Usuário cadastrado!');
                 handleClose();
-                navigate('/login')
+                navigate('/login');
             }
-
         } catch (error) {
             console.error('Erro ao atualizar os termos:', error);
             toast.error('Houve um erro ao atualizar os termos. Tente novamente.');
         }
-
     };
 
     const handleCheckboxChange = (item) => {
@@ -56,37 +54,50 @@ const TermsModal = ({ open, handleClose, termsData, userData, cnpj }) => {
         }));
     };
 
-    // Verificação para garantir que termsData não é null
+    const notAccept = () =>{
+        navigate('/')
+    }
+
     if (!termsData) {
         return null; // Ou você pode retornar um loading, se preferir
     }
 
     return (
-        <Modal open={open} onClose={handleClose}>
+        <Modal
+            open={open}
+            onClose={handleClose}
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+        >
             <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    padding: 4,
-                    borderRadius: 2,
                     maxWidth: 600,
-                    margin: 'auto',
+                    width: '90%',
                     boxShadow: 24,
+                    borderRadius: 2,
+                    overflowY: 'auto',
                     maxHeight: '80vh',
-                    overflow: 'auto',
                 }}
             >
-                <Typography variant="h5" component="h2" gutterBottom>
+                <div className='termo-header' variant="h5" component="h2" gutterBottom>
                     Termos de Uso
-                </Typography>
-                <Typography variant="body1" sx={{ marginBottom: 2 }}>
-                    {termsData.descricao}
-                </Typography>
-                <Typography variant="h6" component="h3" sx={{ marginTop: 2 }}>
-                    Termos Específicos:
-                </Typography>
-                <Box sx={{ marginTop: 1, marginBottom: 2 }}>
+                </div>
+                <div className='termo-body' variant="body1" sx={{ marginBottom: 2 }}>
+                    <div className="body-description">
+                        {termsData.descricao}
+                    </div>
+                </div>
+                <div className='termo-opcional-header' variant="h6" component="h3" sx={{ marginTop: 2 }}>
+                    Termos Opcionais:
+                </div>
+                <div className='termo-opcional-body' sx={{ marginTop: 5, marginBottom: 2 }}>
                     {termsData.termo_item.map((item) => (
                         <FormControlLabel
+                            className='item-check'
                             key={item.termo_item_nome}
                             control={
                                 <Checkbox
@@ -97,22 +108,37 @@ const TermsModal = ({ open, handleClose, termsData, userData, cnpj }) => {
                             label={item.termo_item_descricao}
                         />
                     ))}
-                </Box>
-                <Box sx={{ marginTop: 3, display: 'flex', justifyContent: 'flex-end' }}>
+                </div>
+                <div className='actions-buttons' sx={{ marginTop: 3, display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button
+                        variant="contained"
+                        onClick={notAccept}
+                        sx={{
+                            backgroundColor: '#818181',
+                            color: 'white',
+                            '&:hover': {
+                                backgroundColor: '#555555',
+                            },
+                            marginRight: 2,
+                        }}
+                    >
+                        Não aceitar
+                    </Button>
+
                     <Button
                         variant="contained"
                         onClick={handleAccept}
                         sx={{
-                            backgroundColor: '#4CAF50',
+                            backgroundColor: '#0C4EC9',
                             color: 'white',
                             '&:hover': {
-                                backgroundColor: '#45a049',
+                                backgroundColor: '#063792',
                             },
                         }}
                     >
                         Aceitar
                     </Button>
-                </Box>
+                </div>
             </Box>
         </Modal>
     );

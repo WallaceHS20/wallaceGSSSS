@@ -32,7 +32,7 @@ export const createUser = createAsyncThunk(
             const response = await api.post('/users/createUser', data);
             return response.data;
         } catch (error) {
-            toast.error('Erro ao fazer login.');
+            toast.error('Erro ao criar usuário.');
             return rejectWithValue(error.response.data || error.message);
         }
     }

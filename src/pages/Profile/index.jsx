@@ -16,6 +16,8 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
 
 
 import './profile.css';
@@ -23,6 +25,7 @@ import Menu from '../../components/SideBarMenu';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../redux/user/userSlice';
+import { Link } from 'react-router-dom'
 
 
 export default function Profile() {
@@ -30,6 +33,8 @@ export default function Profile() {
     const user = useSelector((state) => state.user);
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
+
+    const [aceitouTermo, setAceitouTermo] = useState(user.user?.termo_atual?.termo_aceite || false);
 
     // SETANDO VALORES NOS CAMPOS AO CARREGAR
     useEffect(() => {
@@ -48,39 +53,43 @@ export default function Profile() {
     }, [user.user, setValue]);
 
     console.log(user.user);
-    
+
 
     const onSubmit = async (data) => {
         setLoading(true);
         try {
             // Mapeie `termo_item` com os valores mais recentes dos checkboxes
             const termoAtual = {
-                "termo_aceite": true,
+                termo_aceite: aceitouTermo,
                 termo_item: user.user.termo_atual.termo_item.map((item, index) => ({
                     termo_item_nome: item.termo_item_nome,
                     termo_item_aceite: data.termo_item[index].termo_item_aceite, // Pega o valor atualizado do checkbox
                 })),
             };
-    
+
             // CORPO REQUISIÇÃO
             const requestData = {
                 ...data,
                 termo_atual: termoAtual,
                 termo_log: []
             };
-    
+
+            if (!aceitouTermo) {
+                navigate('/');
+            }
+
             const resultAction = await dispatch(updateUser(requestData));
-    
+
             if (updateUser.fulfilled.match(resultAction)) {
                 setLoading(false);
-            } 
-            
+            }
+
             else if (updateUser.rejected.match(resultAction)) {
                 console.error('Erro ao atualizar usuário:', resultAction.payload);
                 setLoading(false);
             }
-        } 
-        
+        }
+
         catch (error) {
             console.error('Erro ao despachar a ação de atualização:', error);
             setLoading(false);
@@ -276,7 +285,22 @@ export default function Profile() {
                                 />
                             </FormControl>
 
-                            {/* TERMOS DE USO */}
+                            <div className="termos-opcionais">
+                                <h2>Termos e Condições de Uso</h2>
+                                <FormControl>
+                                    <RadioGroup
+                                        row
+                                        aria-labelledby="demo-row-radio-buttons-group-label"
+                                        name="row-radio-buttons-group"
+                                        onChange={(e) => setAceitouTermo(e.target.value === 'true')}
+                                    >
+                                        <FormControlLabel value={true} control={<Radio />} label="Não concordo" />
+                                        <FormControlLabel value={false} control={<Radio />} label="Concordo" />
+                                    </RadioGroup>
+                                    <Link to={'/termo'}> Visualizar termo </Link>
+                                </FormControl>
+                            </div>
+
                             <div className="termos-opcionais">
                                 <h2>Termos Opcionais</h2>
                                 {user.user?.termo_atual?.termo_item?.map((item, index) => (

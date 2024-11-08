@@ -1,0 +1,40 @@
+.termo-header {
+    background-color: rgb(6, 6, 99);
+    padding: 8px;
+    color: #FFFF;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.termo-body {
+    padding: 8px;
+}
+
+.body-description {
+    padding: 15px;
+    border-radius: 8px;
+    overflow: auto;
+    background-color: rgb(240, 240, 240);
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.termo-opcional-header{
+    font-weight: 700;
+    margin: 25px 30px;
+}
+
+.termo-opcional-body{
+    padding: 10px;
+}
+
+.item-check{
+    margin: 15px 0;
+}
+
+.actions-buttons{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 15px;
+}

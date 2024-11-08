@@ -28,7 +28,7 @@ export default function SignIn() {
             const resultAction = await dispatch(loginUser(data));
 
             if (loginUser.fulfilled.match(resultAction)) {
-                navigate('/dashboard');
+                navigate('/home');
             } else if (loginUser.rejected.match(resultAction)) {
                 console.error('Erro ao fazer login:', resultAction.payload);
             }
