@@ -23,7 +23,7 @@ export default function Home() {
             }
         };
 
-        if (user && user.termo_atual && user.termo_atual.termo_aceite) {
+        if (user && user.termo_atual && !user.termo_atual.termo_aceite) {
             loadTerms();
         }
 

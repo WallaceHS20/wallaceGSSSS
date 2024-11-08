@@ -9,9 +9,12 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { updateUser } from '../../redux/user/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const TermoModal = ({ open, handleClose, termsData, user }) => {
     const [acceptedTerms, setAcceptedTerms] = useState({});
+    const dispatch = useDispatch();
 
     const handleAccept = async () => {
         const termsToUpdate = termsData.termo_item.map((item) => ({
@@ -21,6 +24,7 @@ const TermoModal = ({ open, handleClose, termsData, user }) => {
         }));
 
         const updatedUserData = {
+            cpf_cnpj: user.cpf_cnpj,
             termo_atual: {
                 termo_aceite: true,
                 termo_item: termsToUpdate,
@@ -29,14 +33,24 @@ const TermoModal = ({ open, handleClose, termsData, user }) => {
             },
         };
 
-        try {
-            const response = await axios.put(`http://localhost:5000/users/${user.cpf_cnpj}/update`, updatedUserData);
+        try {  
 
-            if (response.status === 200) {
+            const resultAction = await dispatch(updateUser(updatedUserData));
+
+            if (updateUser.fulfilled.match(resultAction)) {
+                setLoading(false);
                 toast.success('Termos aceitos com sucesso!');
                 handleClose();
+            } 
+            
+            else if (updateUser.rejected.match(resultAction)) {
+                console.error('Erro ao atualizar usuário:', resultAction.payload);
+                setLoading(false);
             }
-        } catch (error) {
+
+        } 
+        
+        catch (error) {
             console.error('Erro ao atualizar os termos:', error);
             toast.error('Houve um erro ao atualizar os termos. Tente novamente.');
         }

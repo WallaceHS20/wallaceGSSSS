@@ -14,6 +14,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Loader from '../../components/Loader'
 
 import TermsModal from '../../components/TermoCondicoes/ModalTermoCondicoes';
 
@@ -26,7 +27,8 @@ import { fetchLatestTerm } from '../../redux/termo/termoSlice'
 export default function SignUp() {
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
-  const [termsData, setTermsData] = useState(null)
+  const [termsData, setTermsData] = useState(null);
+  const [loader, setLoader] = useState(false)
 
 
   const {
@@ -40,6 +42,7 @@ export default function SignUp() {
 
   const onSubmit = async (data) => {
     try {
+      setLoader(true)
       const resultAction = await dispatch(createUser(data));
 
       if (createUser.fulfilled.match(resultAction)) {
@@ -48,22 +51,24 @@ export default function SignUp() {
         if (fetchLatestTerm.fulfilled.match(termsAction)) {
           setTermsData(termsAction.payload);
           setModalOpen(true);
-          
-          
+          setLoader(false)
         }
 
         else {
           console.error('Erro ao buscar termos:', termsAction.payload);
+          setLoader(false)
         }
 
       }
 
       else if (createUser.rejected.match(resultAction)) {
         console.error('Erro ao criar usuário:', resultAction.payload);
+        setLoader(false)
       }
 
     } catch (error) {
       console.error('Erro ao despachar a ação de cadastro:', error);
+      setLoader(false)
     }
   };
 
@@ -73,6 +78,7 @@ export default function SignUp() {
 
   return (
     <div className='signUp'>
+      {loader && <Loader/>}
       <img className='signUp-logo-img' src='./logob1.png' alt="Logo" />
       <section className="signUp-login-painel">
         <img className='signUp-login-painel-img' src='./scorelg.png' alt="Painel Logo" />
