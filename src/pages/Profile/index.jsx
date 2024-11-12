@@ -26,17 +26,17 @@ import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../redux/user/userSlice';
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Profile() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
+    const [aceitouTermo, setAceitouTermo] = useState(true);
 
-    const [aceitouTermo, setAceitouTermo] = useState(user.user?.termo_atual?.termo_aceite || false);
-
-    // SETANDO VALORES NOS CAMPOS AO CARREGAR
     useEffect(() => {
         if (user.user) {
             setValue('nome', user.user.nome);
@@ -52,8 +52,9 @@ export default function Profile() {
 
     }, [user.user, setValue]);
 
-    console.log(user.user);
-
+    const handleChange = (event) => {
+        setAceitouTermo(event.target.value === 'true');
+    };
 
     const onSubmit = async (data) => {
         setLoading(true);
@@ -74,14 +75,14 @@ export default function Profile() {
                 termo_log: []
             };
 
-            if (!aceitouTermo) {
-                navigate('/');
-            }
-
             const resultAction = await dispatch(updateUser(requestData));
 
             if (updateUser.fulfilled.match(resultAction)) {
                 setLoading(false);
+                if (!aceitouTermo) {
+                    navigate('/');
+                    return
+                }
             }
 
             else if (updateUser.rejected.match(resultAction)) {
@@ -292,17 +293,18 @@ export default function Profile() {
                                         row
                                         aria-labelledby="demo-row-radio-buttons-group-label"
                                         name="row-radio-buttons-group"
-                                        onChange={(e) => setAceitouTermo(e.target.value === 'true')}
+                                        value={aceitouTermo.toString()}
+                                        onChange={handleChange}
                                     >
-                                        <FormControlLabel value={true} control={<Radio />} label="Não concordo" />
-                                        <FormControlLabel value={false} control={<Radio />} label="Concordo" />
+                                        <FormControlLabel value="false" control={<Radio />} label="Não concordo" />
+                                        <FormControlLabel value="true" control={<Radio />} label="Concordo" />
                                     </RadioGroup>
                                     <Link to={'/termo'}> Visualizar termo </Link>
                                 </FormControl>
                             </div>
 
                             <div className="termos-opcionais">
-                                <h2>Termos Opcionais</h2>
+                                <h2>Itens Opcionais do Termo</h2>
                                 {user.user?.termo_atual?.termo_item?.map((item, index) => (
                                     <FormControlLabel
                                         key={index}

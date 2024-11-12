@@ -11,10 +11,12 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { updateUser } from '../../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const TermoModal = ({ open, handleClose, termsData, user }) => {
     const [acceptedTerms, setAcceptedTerms] = useState({});
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleAccept = async () => {
         const termsToUpdate = termsData.termo_item.map((item) => ({
@@ -33,23 +35,21 @@ const TermoModal = ({ open, handleClose, termsData, user }) => {
             },
         };
 
-        try {  
+        try {
 
             const resultAction = await dispatch(updateUser(updatedUserData));
 
             if (updateUser.fulfilled.match(resultAction)) {
-                setLoading(false);
-                toast.success('Termos aceitos com sucesso!');
                 handleClose();
-            } 
-            
+            }
+
             else if (updateUser.rejected.match(resultAction)) {
                 console.error('Erro ao atualizar usuário:', resultAction.payload);
                 setLoading(false);
             }
 
-        } 
-        
+        }
+
         catch (error) {
             console.error('Erro ao atualizar os termos:', error);
             toast.error('Houve um erro ao atualizar os termos. Tente novamente.');
@@ -67,30 +67,39 @@ const TermoModal = ({ open, handleClose, termsData, user }) => {
         return null;
     }
 
+    const notAccept = () => {
+        navigate('/')
+    }
+
     return (
-        <Modal open={open} onClose={handleClose}>
+        <Modal open={open} onClose={handleClose}
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+        >
             <Box
                 sx={{
                     bgcolor: 'background.paper',
-                    padding: 4,
-                    borderRadius: 2,
                     maxWidth: 600,
-                    margin: 'auto',
+                    width: '90%',
                     boxShadow: 24,
+                    borderRadius: 2,
+                    overflowY: 'auto',
                     maxHeight: '80vh',
-                    overflow: 'auto',
                 }}
             >
-                <Typography variant="h5" component="h2" gutterBottom>
+                <div className='termo-header' variant="h5" component="h2" gutterBottom>
                     Termos de Uso
-                </Typography>
-                <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                </div>
+                <div className='termo-body' variant="body1" sx={{ marginBottom: 2 }}>
                     {termsData.descricao}
-                </Typography>
-                <Typography variant="h6" component="h3" sx={{ marginTop: 2 }}>
+                </div>
+                <div className='termo-opcional-header' variant="h6" component="h3" sx={{ marginTop: 2 }}>
                     Termos Específicos:
-                </Typography>
-                <Box sx={{ marginTop: 1, marginBottom: 2 }}>
+                </div>
+                <div className='termo-opcional-body' sx={{ marginTop: 1, marginBottom: 2 }}>
                     {termsData.termo_item.map((item) => (
                         <FormControlLabel
                             key={item.termo_item_nome}
@@ -107,8 +116,24 @@ const TermoModal = ({ open, handleClose, termsData, user }) => {
                             }
                         />
                     ))}
-                </Box>
-                <Box sx={{ marginTop: 3, display: 'flex', justifyContent: 'flex-end' }}>
+                </div>
+                <div className='actions-buttons' sx={{ marginTop: 3, display: 'flex', justifyContent: 'flex-end' }}>
+
+                    <Button
+                        variant="contained"
+                        onClick={notAccept}
+                        sx={{
+                            backgroundColor: '#818181',
+                            color: 'white',
+                            '&:hover': {
+                                backgroundColor: '#555555',
+                            },
+                            marginRight: 2,
+                        }}
+                    >
+                        Não aceitar
+                    </Button>
+
                     <Button
                         variant="contained"
                         onClick={handleAccept}
@@ -122,7 +147,7 @@ const TermoModal = ({ open, handleClose, termsData, user }) => {
                     >
                         Aceitar
                     </Button>
-                </Box>
+                </div>
             </Box>
         </Modal>
     );
